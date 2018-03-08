@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>socket客户端</title>
+</head>
+<body>
+<h1>hello socket!!</h1>
+websocket Demo---- user000 <br />
+<input id="text" type="text" />
+<button onclick="send()"> Send </button>
+<button onclick="closeSocket()"> Close </button>
+<div id="message"> </div>
+</body>
+<script type="text/javascript">
+
+    var webSocket =null;
+
+    if('WebSocket' in window){
+        webSocket = new WebSocket('ws://' + window.location.host + '/webSocket/marco');;
+    }else{
+        alert("浏览器不支持WebSocket");
+    }
+
+    webSocket.onerror = function (event) {
+        setMessageInnerHTML();
+    };
+
+    webSocket.onopen = function (event) {
+        
+    }
+
+    webSocket.onmessage = function (event) {
+
+    }
+    webSocket.onclose = function (event) {
+
+    }
+    window.onbeforeunload = function(){
+
+        webSocket.close();
+    }
+
+    function setMessageInnerHTML(msg){
+        document.getElementById("message").innerHTML = msg;
+    }
+    function send() {
+        var message  = document.getElementById("text").value;
+        console.log(message);
+        webSocket.send(message);
+    }
+
+    function closeSocket() {
+        webSocket.close();
+    }
+
+
+
+</script>
+</html>
