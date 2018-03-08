@@ -28,6 +28,7 @@ public class MyWebSocket {
     private static Map<String,MyWebSocket> clients = new ConcurrentHashMap<>();
     private Session session;
     private String userName;
+    private String test1;
     private String test;
 
     public static Map<String, MyWebSocket> getClients() {
