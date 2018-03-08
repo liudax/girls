@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.web.socket.server.standard.SpringConfigurator;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
@@ -22,7 +21,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @description
  */
 @Component
-@ServerEndpoint(value = "/webSocket/{username}",configurator = SpringConfigurator.class)
+@ServerEndpoint(value = "/webSocket/{username}")
 public class MyWebSocket {
 
     private final Logger logger = LoggerFactory.getLogger(MyWebSocket.class);
